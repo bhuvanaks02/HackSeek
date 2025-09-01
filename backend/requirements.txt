@@ -1,0 +1,9 @@
+# Core dependencies will be added in development phases
+# FastAPI
+# uvicorn
+# sqlalchemy
+# psycopg2-binary
+# requests
+# beautifulsoup4
+# anthropic
+# python-dotenv

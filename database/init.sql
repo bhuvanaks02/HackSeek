@@ -1,0 +1,2 @@
+-- Database initialization script
+-- Tables will be defined in development phases

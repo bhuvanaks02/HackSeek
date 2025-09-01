@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    environment:
+      - DATABASE_URL=postgresql://hackseek:password@postgres:5432/hackseek_db
+      - PYTHONPATH=/app
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:15-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=hackseek
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=hackseek_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  scraper:
+    build: ./backend
+    volumes:
+      - ./scraper:/app/scraper
+    environment:
+      - DATABASE_URL=postgresql://hackseek:password@postgres:5432/hackseek_db
+    depends_on:
+      - postgres
+    command: python -m scraper.main
+
+volumes:
+  postgres_data:

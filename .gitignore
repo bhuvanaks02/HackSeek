@@ -1,0 +1,50 @@
+# Environment files
+.env
+.env.local
+.env.production
+.env.development
+
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Build outputs
+.next/
+dist/
+build/
+
+# Database
+*.db
+*.sqlite3
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Docker
+.dockerignore
+
+# Python specific
+*.pyc
+__pycache__/
+.pytest_cache/
+.coverage
+
+# Frontend specific
+.next/
+out/
+public/sitemap.xml
+public/robots.txt
