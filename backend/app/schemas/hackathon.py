@@ -1,0 +1,1 @@
+# Hackathon Pydantic schemas

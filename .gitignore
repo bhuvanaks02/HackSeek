@@ -3,48 +3,101 @@
 .env.local
 .env.production
 .env.development
+backend/.env
 
 # Dependencies
 node_modules/
+venv/
+env/
+.venv/
 __pycache__/
 *.pyc
 *.pyo
+*.pyd
 *.egg-info/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Python virtual environments
+backend/venv/
+backend/env/
+backend/.venv/
 
 # Build outputs
 .next/
 dist/
 build/
+backend/dist/
+backend/build/
 
-# Database
+# Database files
 *.db
 *.sqlite3
+*.sqlite
+hackseek.db
+
+# Migrations (preserve structure but ignore data)
+backend/alembic/versions/*.py
+!backend/alembic/versions/.gitkeep
 
 # IDE files
 .vscode/
 .idea/
 *.swp
 *.swo
+*~
+.sublime-*
 
 # OS files
 .DS_Store
 Thumbs.db
+ehthumbs.db
+Desktop.ini
 
 # Logs
 *.log
 logs/
+backend/logs/
 
-# Docker
-.dockerignore
-
-# Python specific
-*.pyc
-__pycache__/
-.pytest_cache/
+# Test coverage
 .coverage
+.pytest_cache/
+htmlcov/
+.tox/
+.cache
+coverage.xml
+*.cover
+.hypothesis/
+
+# FastAPI specific
+backend/app.log
+
+
+# Jupyter Notebook
+.ipynb_checkpoints
 
 # Frontend specific
 .next/
 out/
 public/sitemap.xml
 public/robots.txt
+.turbo
+.vercel
+
+# Docker
+.dockerignore
+
+# Temporary files
+*.tmp
+*.temp
+.sass-cache/
+*.css.map
+
+# Security
+*.pem
+*.key
+*.cert
+
+
+# Readme and deployment docs
+backend/railway_deployment.md
