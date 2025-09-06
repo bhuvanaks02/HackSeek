@@ -1,4 +1,4 @@
-from pydantic import BaseSettings
+from pydantic_settings import BaseSettings
 from typing import Optional
 import os
 
@@ -25,7 +25,7 @@ class Settings(BaseSettings):
     environment: str = os.getenv("ENVIRONMENT", "development")
     
     class Config:
-        env_file = ".env"
+        env_file = "../../.env"
     
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
